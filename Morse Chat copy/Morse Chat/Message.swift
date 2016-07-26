@@ -15,6 +15,7 @@ class Message {
     private let textKey = "MessageText"
     private let userPhotoKey = "UserPhoto"
     static let typeKey = "Message"
+    static let timeKey = "Time"
     
     var senderUID: CKRecordID
     var messageText: String

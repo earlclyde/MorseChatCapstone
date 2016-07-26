@@ -14,6 +14,10 @@ class UserController {
     
     let cloudKitManager: CloudKitManager
     
+    private let userKey = "storedUsers"
+    
+    var user: User?
+    
     init() {
         
         cloudKitManager = CloudKitManager()
@@ -22,10 +26,11 @@ class UserController {
     static let sharedController = UserController()
     var defaultContainer: CKContainer?
     
-    //TODO: Set your current user once the user has been created. Save into NSUserDefaults
+    var currentUser: User? {
+        guard let userRecord = NSUserDefaults.standardUserDefaults().objectForKey(userKey) as? CKRecord else { return nil }
+        return User(record: userRecord)
+    }
     
-    
-    var currentUser: User?
     
     func fetchNewRecords(type: String, completion: (() -> Void)?) {
         //        let predicate: NSPredicate
@@ -56,6 +61,7 @@ class UserController {
     }
     
     func createUser(user: User) {
+         NSUserDefaults.standardUserDefaults().setObject(user.recordCopy, forKey: userKey)
         if let cloudKitRecord = user.recordCopy {
             cloudKitManager.saveRecord(cloudKitRecord) { (record, error) in
                 if let error = error {
@@ -65,6 +71,20 @@ class UserController {
             }
         }
     }
+    
+    func getAllUsers() -> [User] {
+        
+        let user1 = User(userName: "JustinSmith", firstName: "Justin", lastName: "Smith")
+        let user2 = User(userName: "MasonEarl", firstName: "Mason", lastName: "Earl")
+        let user3 = User(userName: "TylerRobinson", firstName: "Tyler", lastName: "Robinson")
+
+        return [user1, user2, user3]
+    }
+    
+    // Function that gets all users  
+    //  - Pull user records from cloudkit 
+    //  - In here, use moc data to see if its working properly 
+    // SearchController
     
     //    func addUserToConversation() {
     //

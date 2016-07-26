@@ -10,7 +10,7 @@ import UIKit
 
 class MemberCollectionCell: UICollectionViewCell {
 
-    @IBOutlet weak var contactName: UILabel!
-    @IBOutlet weak var contactImage: UIImageView!
+    @IBOutlet weak var memberName: UILabel!
+    @IBOutlet weak var memberImage: UIImageView!
     
 }

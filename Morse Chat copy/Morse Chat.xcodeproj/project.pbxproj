@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1812F80D1D3E782200A973F6 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1812F80C1D3E782200A973F6 /* CloudKit.framework */; };
+		185105CB1D47D86100F5958D /* SearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185105CA1D47D86100F5958D /* SearchResultsTableViewController.swift */; };
+		185105CE1D47D8E000F5958D /* SearchableRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185105CD1D47D8E000F5958D /* SearchableRecord.swift */; };
+		185105D01D47D9D900F5958D /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185105CF1D47D9D900F5958D /* UserTableViewCell.swift */; };
 		187CAE481D3D22BD004DB663 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187CAE471D3D22BD004DB663 /* AppDelegate.swift */; };
 		187CAE4D1D3D22BD004DB663 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 187CAE4B1D3D22BD004DB663 /* Main.storyboard */; };
 		187CAE4F1D3D22BD004DB663 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 187CAE4E1D3D22BD004DB663 /* Assets.xcassets */; };
@@ -58,6 +61,9 @@
 /* Begin PBXFileReference section */
 		1812F80B1D3E781F00A973F6 /* Morse Chat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Morse Chat.entitlements"; sourceTree = "<group>"; };
 		1812F80C1D3E782200A973F6 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		185105CA1D47D86100F5958D /* SearchResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewController.swift; sourceTree = "<group>"; };
+		185105CD1D47D8E000F5958D /* SearchableRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchableRecord.swift; sourceTree = "<group>"; };
+		185105CF1D47D9D900F5958D /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		187CAE441D3D22BD004DB663 /* Morse Chat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Morse Chat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		187CAE471D3D22BD004DB663 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		187CAE4C1D3D22BD004DB663 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -120,6 +126,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		185105C81D47D6ED00F5958D /* SearchMembers */ = {
+			isa = PBXGroup;
+			children = (
+				185105CF1D47D9D900F5958D /* UserTableViewCell.swift */,
+				185105CA1D47D86100F5958D /* SearchResultsTableViewController.swift */,
+				187CAEEB1D3D7CCA004DB663 /* AddMemberTableViewController.swift */,
+			);
+			name = SearchMembers;
+			sourceTree = "<group>";
+		};
+		185105C91D47D72B00F5958D /* Login/SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				187CAEDE1D3D5A26004DB663 /* LoginViewController.swift */,
+				187CAEEF1D3D935F004DB663 /* SignUpSignInViewController.swift */,
+			);
+			name = Login/SignUp;
+			sourceTree = "<group>";
+		};
+		185105CC1D47D8A800F5958D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				185105CD1D47D8E000F5958D /* SearchableRecord.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		187CAE3B1D3D22BD004DB663 = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +182,9 @@
 				187CAE471D3D22BD004DB663 /* AppDelegate.swift */,
 				187CAEDA1D3D598C004DB663 /* CreateGroupViewController.swift */,
 				187CAEDC1D3D59EC004DB663 /* ProfileTableViewController.swift */,
+				185105C91D47D72B00F5958D /* Login/SignUp */,
+				185105CC1D47D8A800F5958D /* Protocols */,
+				185105C81D47D6ED00F5958D /* SearchMembers */,
 				18A0589F1D3EE91400CA403D /* CloudKit */,
 				187CAEE41D3D5CD8004DB663 /* Members */,
 				187CAED41D3D58DC004DB663 /* Chat View */,
@@ -202,9 +238,6 @@
 			isa = PBXGroup;
 			children = (
 				187CAEE91D3D5D78004DB663 /* CKAsset.swift */,
-				187CAEDE1D3D5A26004DB663 /* LoginViewController.swift */,
-				187CAEEB1D3D7CCA004DB663 /* AddMemberTableViewController.swift */,
-				187CAEEF1D3D935F004DB663 /* SignUpSignInViewController.swift */,
 				187CAECC1D3D453E004DB663 /* User.swift */,
 				187CAEC31D3D4329004DB663 /* UserController.swift */,
 			);
@@ -399,10 +432,12 @@
 				187CAED81D3D5918004DB663 /* ChatMessageCell.swift in Sources */,
 				187CAEC81D3D451C004DB663 /* Message.swift in Sources */,
 				187CAECD1D3D453E004DB663 /* User.swift in Sources */,
+				185105D01D47D9D900F5958D /* UserTableViewCell.swift in Sources */,
 				187CAEE11D3D5AA3004DB663 /* ToMessageTableViewCell.swift in Sources */,
 				187CAECA1D3D4527004DB663 /* MessageController.swift in Sources */,
 				187CAEEA1D3D5D78004DB663 /* CKAsset.swift in Sources */,
 				187CAED01D3D455D004DB663 /* Conversation.swift in Sources */,
+				185105CB1D47D86100F5958D /* SearchResultsTableViewController.swift in Sources */,
 				187CAEDD1D3D59EC004DB663 /* ProfileTableViewController.swift in Sources */,
 				187CAEE81D3D5D13004DB663 /* MemberCollectionCell.swift in Sources */,
 				18A0589E1D3EE8FC00CA403D /* Stack.swift in Sources */,
@@ -414,6 +449,7 @@
 				187CAED61D3D58F7004DB663 /* ChatViewController.swift in Sources */,
 				187CAEDF1D3D5A26004DB663 /* LoginViewController.swift in Sources */,
 				187CAE481D3D22BD004DB663 /* AppDelegate.swift in Sources */,
+				185105CE1D47D8E000F5958D /* SearchableRecord.swift in Sources */,
 				187CAEF01D3D935F004DB663 /* SignUpSignInViewController.swift in Sources */,
 				187CAEE61D3D5CF6004DB663 /* MemberTableViewCell.swift in Sources */,
 				187CAEEC1D3D7CCA004DB663 /* AddMemberTableViewController.swift in Sources */,

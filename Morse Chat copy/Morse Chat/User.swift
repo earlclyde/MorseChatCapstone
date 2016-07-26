@@ -9,7 +9,29 @@
 import Foundation
 import CloudKit
 
-class User {
+class User: SearchableRecord {
+    
+    // MARK: SearchableRecords Methods 
+    
+    @objc func matchesSearchTerm(searchTerm: String) -> Bool {
+        let lowercaseUsername = self.userName.lowercaseString
+        let lowercaseFirstName = self.firstName.lowercaseString
+        let lowercaseLastName = self.lastName.lowercaseString
+        
+        if lowercaseUsername.containsString(searchTerm) {
+            return true
+        } else if lowercaseFirstName.containsString(searchTerm) {
+            return true
+        } else if lowercaseLastName.containsString(searchTerm) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    // MARK: CloudKitManagedObjectMethods 
+    
+    
     
     private let friendsKey = "Friends"
     static let typeKey = "User"

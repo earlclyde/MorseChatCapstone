@@ -21,18 +21,6 @@ class MessageController: NSObject {
         cloudKitManager = CloudKitManager()
     }
     
-    //    func saveContext() {
-    //        let moc = Stack.sharedStack.managedObjectContext
-    //        do {
-    //            try moc.save()
-    //        } catch let error as NSError{
-    //            print(error.localizedDescription)
-    //            print("There was an error saving the context")
-    //        }
-    //        //        _ = try? moc.save()
-    //
-    //    }
-    
     static func postMessage(message: Message, completion:(success: Bool) -> Void) {
         let record = CKRecord(recordType: "Message")
         record.setValuesForKeysWithDictionary(message.toAnyObject() as! [String: AnyObject])
@@ -70,6 +58,27 @@ class MessageController: NSObject {
             }
         }
     }
+    
+    
+//    func loadMessages() {
+//        let pred = NSPredicate(value: true)
+//        let sort = NSSortDescriptor(key: "Time", ascending: false)
+//        let query = CKQuery(recordType: "Messages", predicate: pred)
+//        query.sortDescriptors = [sort]
+//        
+//        let operation = CKQueryOperation(query: query)
+//        operation.desiredKeys = ["messageText"]
+//        operation.resultsLimit = 50
+//        
+//        var newMessages = [Message]()
+//        
+//        operation.recordFetchedBlock = { (record) in
+//            let message = Message()
+//            message.recordID = record.recordID
+//            message.messageText = record["messageText"] as! String
+//            newMessages.append(message)
+//            
+//        }
     
 //    func syncedRecords(type: String) -> [CloudKitManagedObject] {
 ////        let fetchRequest = NSFetchRequest(entityName: type)
